@@ -1,9 +1,9 @@
-/* start rest */
+/* start reset */
 * {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box; 
-    font-size: 24px;   
+       
 }
 
 a {
@@ -20,6 +20,16 @@ ul, ol {
     list-style: none;
 }
 /* end reset */
+/*for all*/
+h1 {
+    color: rgba(179,0,180,255);
+    font-size: 36px;
+    margin: 30px 0px;
+    text-align: center;
+}
+
+
+/*End for all*/
 
 /* Start header */
 .header {
@@ -63,7 +73,54 @@ ul, ol {
 }
 
 .header__span {
-    color: pink;
-    font-size: 36px;
+    color: rgba(179,0,180,255);
+    font-size: 30px;
     font-weight: bold;
 }
+/*End header */
+
+/*Start section accueil*/
+
+.annonce {
+    display: flex;
+    gap: 20px;
+    margin: 20px 100px;
+  
+}
+.annonce__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    text-align: center;
+}
+
+.annonce__img{
+    text-align: center;
+    width: 50%;
+}
+/*End section accueil*/
+
+/*start footer*/
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0px;
+    background: linear-gradient(to bottom right,rgba(0,255,253,255),rgba(179,0,180,255) );
+    color: white;
+   
+}
+.acces__reseau {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    gap: 10px;
+}
+
+.formulaire {
+
+   
+}
+
+
