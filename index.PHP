@@ -7,9 +7,24 @@
     <link rel="stylesheet"   href="CSS/index.css">
     <title>Gamestore</title>
 </head>
-<body>
-<!--Start Header-->
 
+
+    <?php
+
+    require_once 'pdo.php';
+    require_once 'DbConnection.php';
+
+     DbConnection::getPdo();
+     DbConnection::getPdo();
+     DbConnection::getPdo();
+ 
+     $query = $pdo->query('SELECT * FROM liste_game');
+     $liste_game = $query->fetchAll(PDO::FETCH_ASSOC);
+ 
+ ?>
+
+<!--Start Header-->
+<body>
     <header class="header">
         <nav class="navbar">
             
@@ -18,9 +33,10 @@
             <ul class="navigation">
                 <li class="navigation__li"><a href="">Acceuil</a></li>
                 <li class="navigation__li"><a href="liste.php">Jeux</a></li>
-                <li><a href="form_ajout.html">ajout</a></li>
+                <li class="navigation__li"><a href="form_ajout.php">ajout</a></li>
             </ul>
-            <button class="navbar__button">Se connecter</button>
+            <button class="navbar__button" type="submit"><a href="form_inscription.php">S'inscrire</a></button>
+            <button class="navbar__button" type="submit"><a href="form_co.php">Se connecter</a></button>
         </nav>
 
     <!--start section descprition-->
