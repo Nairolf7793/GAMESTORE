@@ -34,13 +34,15 @@ h1 {
 /* Start header */
 .header {
     height: 100vh;
-    background-image: url(../asset/fond.png);
+    background-image: url();
     background-size: 100%;
     background-repeat:no-repeat ;
     opacity: 0.8;
 }
 
-
+.navbar {
+    display: flex;
+}
 .navigation__li :hover{
     background-color: rgba(179,0,180,255);
 }
@@ -117,12 +119,12 @@ h1 {
 .liste {
  display: flex;
  margin: auto;
- background-color: aqua;
+ background-color: rgb(44, 188, 255);
  border: 5px black solid;
 }
 
 .liste_one {
-    border: 5px red solid;
+    border: 5px rgb(146, 163, 51) solid;
     padding: 20px;
    
 }

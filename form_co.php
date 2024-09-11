@@ -8,8 +8,9 @@
 
 
 <?php
-require_once 'pdo.php';
 require_once 'DbConnection.php';
+require_once 'session.php';
+
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $username = $_POST['username'];
         $mp = $_POST['mp'];
         $db = DbConnection::getPdo();
-        $sql = ('SELECT * FROM USER WHERE username = :username'); //requete stockée dans variable
+        $sql = ('SELECT * FROM user WHERE username = :username'); //requete stockée dans variable
         $query = $db->prepare($sql);
         
         $query->bindParam(':username', $username);
@@ -39,7 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo 'mp incorrect';
 
            } else {
+            $_SESSION["user"]= $user;
             header('location: index.php');
+            exit();
            }
         }
 
@@ -47,6 +50,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 ?>
 <body>
+    
+<!--<header class="header">
+        <nav class="navbar">
+            
+            <img src="asset/LOGO.png" alt="image du logo gamestore" title="logo gamestore">
+          
+            <ul class="navigation">
+                <li class="navigation__li"><a href="index.php">Acceuil</a></li>
+                <li class="navigation__li"><a href="liste.php">Jeux</a></li>
+                <li class="navigation__li"><a href="form_ajout.php">Ajout</a></li>
+            </ul>
+            
+            <button class="navbar__button" type="submit"><a href="form_inscription.php">S'inscrire</a></button>
+            <button class="navbar__button" type="submit"><a href="form_co.php">Se connecter</a></button>
+            <?php 
+                if (isset($_SESSION["user"])): ?>
+                <a href="logout.php">Déconnexion</a>
+                <?php echo $_SESSION["user"]["username"]; ?>
+                <?php else: ?>
+                    <a href="form_co.php">connexion</a>
+                <?php endif; ?>
+        </nav>   -->
+
+    <h1>Se connecter</h1>
+
+    <?php
+        if(isset($_SESSION["success message"])): ?>
+        <?php echo "compte crée";
+        unset($_SESSION["success message"]); //unset pour supprimer le message (success) en réactualisant la page, supprime donnée
+        ?>
+        <?php endif; ?>
+
+
     <form action="" method="post">
         <label for="username">username</label>
         <input type="text" id="username" name="username">
@@ -57,6 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <button type="submit">connection</button>
 
     </form>
+
+     
 
 </body>
 </html>

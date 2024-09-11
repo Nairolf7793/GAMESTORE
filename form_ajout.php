@@ -9,8 +9,10 @@
 
 <?php
 
-require_once 'pdo.php';
+require_once 'DbConnection.php';
+require_once 'session.php';
 
+    $pdo = DbConnection::getPdo();
  $query = $pdo->query('SELECT * FROM liste_game');
  $liste_game = $query->fetchAll(PDO::FETCH_ASSOC);
 

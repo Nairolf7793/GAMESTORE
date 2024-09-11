@@ -1,7 +1,9 @@
  
 <?php 
 
-require_once 'pdo.php';
+require_once 'DbConnection.php';
+require_once 'session.php';
+$pdo = DbConnection::getPdo();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
      if(
