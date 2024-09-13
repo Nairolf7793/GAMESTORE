@@ -24,8 +24,6 @@ require_once 'session.php';
 </head>
 <body>
 
-
-
 <!--Start Header-->
 
     <header class="header">
@@ -36,15 +34,15 @@ require_once 'session.php';
             <ul class="navigation">
                 <li class="navigation__li"><a href="index.php">Acceuil</a></li>
                 <li class="navigation__li"><a href="liste.php">Jeux</a></li>
-               
             </ul>
 
             <?php 
                 if (isset($_SESSION["user"])): ?>
-                <a href="logout.php">Déconnexion</a>
+                <p>Bonjour <?php echo $_SESSION["user"]["firstname"]; ?> </p>
                 <a href="">mon panier</a>
                 <a href="form_ajout.php">Ajout jeux</a></li>
-                <?php echo $_SESSION["user"]["username"]; ?>
+                <a href="logout.php">Déconnexion</a>
+                
                 <?php else: ?>
                     <button class="navbar__button" type="submit"><a href="form_co.php">Se connecter</a></button>
                     <button class="navbar__button" type="submit"><a href="form_inscription.php">S'inscrire</a></button>

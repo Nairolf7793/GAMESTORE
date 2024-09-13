@@ -14,17 +14,17 @@ require_once 'session.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(!$_POST['username'] || !$_POST['mp']) {
+    if(!$_POST['firstname'] || !$_POST['mp']) {
         echo 'identifiant incorrect';
     } else {
 
-        $username = $_POST['username'];
+        $firstname = $_POST['firstname'];
         $mp = $_POST['mp'];
         $db = DbConnection::getPdo();
-        $sql = ('SELECT * FROM user WHERE username = :username'); //requete stockée dans variable
+        $sql = ('SELECT * FROM user WHERE firstname = :firstname'); //requete stockée dans variable
         $query = $db->prepare($sql);
         
-        $query->bindParam(':username', $username);
+        $query->bindParam(':firstname', $firstname);
 
         $query->execute();
 
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <?php 
                 if (isset($_SESSION["user"])): ?>
                 <a href="logout.php">Déconnexion</a>
-                <?php echo $_SESSION["user"]["username"]; ?>
+                <?php echo $_SESSION["user"]["firstname"]; ?>
                 <?php else: ?>
                     <a href="form_co.php">connexion</a>
                 <?php endif; ?>
@@ -84,8 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
     <form action="" method="post">
-        <label for="username">username</label>
-        <input type="text" id="username" name="username">
+        <label for="firstname">firstname</label>
+        <input type="text" id="firstname" name="firstname">
 
         <label for="mp">password</label>
         <input type="password" id="mp" name="mp">

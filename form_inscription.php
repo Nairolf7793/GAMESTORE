@@ -13,22 +13,36 @@ require_once 'DbConnection.php';
 require_once 'session.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(!$_POST['username'] || !$_POST['mp']) {
-        echo 'identifiant invalide';
+    if(!$_POST['firstname'] || !$_POST['lastname'] || !$_POST['mp'] || !$_POST['email'])  {
+        echo 'un des champs est manquant';
     } else {
-        $username=$_POST['username'];
+        $firstname=$_POST['firstname'];
+        $lastname=$_POST['lastname'];
         $mp=$_POST['mp'];
         $hash=password_hash($mp,PASSWORD_BCRYPT);
+        $email=$_POST['email'];
+        $nb=$_POST['nb'];
+        $adress=$_POST['adress'];
+        $code=$_POST['code'];
 
-        
-        $query = DbConnection::getPdo()->prepare('INSERT INTO user (username, mp)
+        $query = DbConnection::getPdo()->prepare('INSERT INTO user (firstname,lastname, mp, email, nb, adress, code)
         VALUES (
-        :username,
-        :mp)
+        :firstname,
+        :lastname,
+        :mp,
+        :email,
+        :nb,
+        :adress,
+        code)
         ');
 
-        $query->bindParam(':username', $_POST['username']);
+        $query->bindParam(':firstname', $_POST['firstname']);
+        $query->bindParam(':lastname', $_POST['lastname']);
         $query->bindParam(':mp', $hash);
+        $query->bindParam(':email', $_POST['email']);
+        $query->bindParam(':nb', $_POST['nb']);
+        $query->bindParam(':adress', $_POST['adress']);
+        $query->bindParam(':code', $_POST['code']);
 
         if (!$query->execute()){
             echo "une erreur est survenue";
@@ -36,9 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         else {
             $_SESSION["success message"] = "Votre compte a bien été crée";
             header('location: form_co.php'); }
-      
-    }
-   
+    } 
 }
 ?>
 
@@ -50,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <ul class="navigation">
                 <li class="navigation__li"><a href="index.php">Acceuil</a></li>
                 <li class="navigation__li"><a href="liste.php">Jeux</a></li>
-                <li class="navigation__li"><a href="form_ajout.php">Ajout</a></li>
             </ul>
             
             <button class="navbar__button" type="submit"><a href="form_inscription.php">S'inscrire</a></button>
@@ -58,19 +69,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <?php 
                 if (isset($_SESSION["user"])): ?>
                 <a href="logout.php">Déconnexion</a>
-                <?php echo $_SESSION["user"]["username"]; ?>
+                <?php echo $_SESSION["user"]["firstname"]; ?>
                 <?php else: ?>
-                    <a href="form_co.php">connexion</a>
                 <?php endif; ?>
         </nav>
 
 
     <form action="" method="post">
-        <label for="username">username</label>
-        <input type="text" id="username" name="username">
+        <label for="firstname">Nom: </label>
+        <input type="text" id="firstname" name="firstname">
 
-        <label for="mp">password</label>
+        <label for="lastname">Prénom: </label>
+        <input type="text" id="lastname" name="lastname">
+
+        <label for="mp">mot de passe: </label>
         <input type="text" id="mp" name="mp">
+
+        <label for="email">email: </label>
+        <input type="email" id="email" name="email">
+
+        <label for="nb">numéro: </label>
+        <input type="number" id="nb" name="nb">
+
+        <label for="adress">adresse: </label>
+        <input type="text" id="adress" name="adress">
+
+        <label for="code">code postal:</label>
+        <input type="number" id="code" name="code">
 
         <button type="submit">inscription</button>
 
