@@ -20,15 +20,14 @@ require_once 'session.php';
 
 <?php 
 
-   require_once 'pdo.php';
+    require_once 'pdo.php';
 
     $query = $pdo->query('SELECT * FROM liste_game');
-    $liste_game = $query->fetchAll(PDO::FETCH_ASSOC);
+    
 
 ?>
 <body>
 
-<a href="form_ajout.php">ajout</a>
 <div class="liste">
     <?php foreach ($liste_game as $valeur) { ?>
      <div class="liste_one">

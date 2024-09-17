@@ -3,10 +3,9 @@
 
 require_once 'DbConnection.php';
 require_once 'session.php';
+require_once 'header.php';
  
-
  DbConnection::getPdo();
-
 
  $query = DbConnection::getPdo()->query('SELECT * FROM liste_game');
  $liste_game = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -24,30 +23,6 @@ require_once 'session.php';
 </head>
 <body>
 
-<!--Start Header-->
-
-    <header class="header">
-        <nav class="navbar">
-            
-            <img src="asset/LOGO.png" alt="image du logo gamestore" title="logo gamestore">
-          
-            <ul class="navigation">
-                <li class="navigation__li"><a href="index.php">Acceuil</a></li>
-                <li class="navigation__li"><a href="liste.php">Jeux</a></li>
-            </ul>
-
-            <?php 
-                if (isset($_SESSION["user"])): ?>
-                <p>Bonjour <?php echo $_SESSION["user"]["firstname"]; ?> </p>
-                <a href="">mon panier</a>
-                <a href="form_ajout.php">Ajout jeux</a></li>
-                <a href="logout.php">Déconnexion</a>
-                
-                <?php else: ?>
-                    <button class="navbar__button" type="submit"><a href="form_co.php">Se connecter</a></button>
-                    <button class="navbar__button" type="submit"><a href="form_inscription.php">S'inscrire</a></button>
-                <?php endif; ?>
-        </nav>
 
     <!--start section descprition-->
         <section class="header__description">

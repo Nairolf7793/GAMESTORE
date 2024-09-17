@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         :email,
         :nb,
         :adress,
-        code)
+        :code)
         ');
 
         $query->bindParam(':firstname', $_POST['firstname']);
@@ -53,27 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     } 
 }
 ?>
-
-<header class="header">
-        <nav class="navbar">
-            
-            <img src="asset/LOGO.png" alt="image du logo gamestore" title="logo gamestore">
-          
-            <ul class="navigation">
-                <li class="navigation__li"><a href="index.php">Acceuil</a></li>
-                <li class="navigation__li"><a href="liste.php">Jeux</a></li>
-            </ul>
-            
-            <button class="navbar__button" type="submit"><a href="form_inscription.php">S'inscrire</a></button>
-            <button class="navbar__button" type="submit"><a href="form_co.php">Se connecter</a></button>
-            <?php 
-                if (isset($_SESSION["user"])): ?>
-                <a href="logout.php">Déconnexion</a>
-                <?php echo $_SESSION["user"]["firstname"]; ?>
-                <?php else: ?>
-                <?php endif; ?>
-        </nav>
-
 
     <form action="" method="post">
         <label for="firstname">Nom: </label>
