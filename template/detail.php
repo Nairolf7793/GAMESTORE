@@ -1,6 +1,6 @@
 <?php 
-require_once "header.php";
-require_once 'DbConnection.php';
+require_once "./header.php";
+require_once '../configuration/DbConnection.php';
 
 
     $valeur_id = $_GET['valeur_id'];

@@ -8,14 +8,15 @@
 <body>
     
 </body>
-</html><header class="header">
+</html>
+    <header class="header">
         <nav class="navbar">
             
-            <img src="asset/LOGO.png" alt="image du logo gamestore" title="logo gamestore">
+            <img src="../asset/LOGO.png" alt="image du logo gamestore" title="logo gamestore">
           
             <ul class="navigation">
                 <li class="navigation__li"><a href="index.php">Acceuil</a></li>
-                <li class="navigation__li"><a href="liste.php">Jeux</a></li>
+                <li class="navigation__li"><a href="./template/liste.php">Jeux</a></li>
             </ul>
 
             <?php 
@@ -30,10 +31,6 @@
                     ?>
                     <button class="navbar__button" type="submit"><a href="form_co.php">Se connecter</a></button>
                     <button class="navbar__button" type="submit"><a href="form_inscription.php">S'inscrire</a></button>
-                <?php endif; ?>
-
-
-               
+                <?php endif; ?>  
         
-               
         </nav>

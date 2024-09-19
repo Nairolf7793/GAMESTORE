@@ -1,9 +1,9 @@
 <?php
 
 
-require_once 'DbConnection.php';
+require_once './configuration/DbConnection.php';
 require_once 'session.php';
-require_once 'header.php';
+require_once 'template/header.php';
  
  DbConnection::getPdo();
 
