@@ -1,7 +1,8 @@
 <?php 
 
-require_once 'DbConnection.php';
-require_once 'session.php';
+require_once '../configuration/DbConnection.php';
+require_once '../session.php';
+require_once './header.php';
 
 
     $query = DbConnection::getPdo()->query('SELECT * FROM liste_game');
@@ -19,16 +20,11 @@ require_once 'session.php';
 </head>
 
 <?php 
-
-   require_once 'pdo.php';
-
+    require_once '../configuration/pdo.php';
     $query = $pdo->query('SELECT * FROM liste_game');
-    $liste_game = $query->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 <body>
 
-<a href="form_ajout.php">ajout</a>
 <div class="liste">
     <?php foreach ($liste_game as $valeur) { ?>
      <div class="liste_one">

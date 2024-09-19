@@ -1,7 +1,7 @@
  
 <?php 
 
-require_once 'DbConnection.php';
+require_once 'configuration/DbConnection.php';
 require_once 'session.php';
 $pdo = DbConnection::getPdo();
 

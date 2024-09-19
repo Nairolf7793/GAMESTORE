@@ -9,12 +9,12 @@
 
 <?php
 
-require_once 'DbConnection.php';
+require_once 'configuration/DbConnection.php';
 require_once 'session.php';
 
-    $pdo = DbConnection::getPdo();
- $query = $pdo->query('SELECT * FROM liste_game');
- $liste_game = $query->fetchAll(PDO::FETCH_ASSOC);
+$pdo = DbConnection::getPdo();
+$query = $pdo->query('SELECT * FROM liste_game');
+$liste_game = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
     <main>
@@ -36,8 +36,6 @@ require_once 'session.php';
                 <input type="text" class="" id="genre" name="genre">
             </div>
             <button type='submit'>envoyer</button>
-
-
         </form>
     </main>
     
