@@ -77,8 +77,13 @@ require_once '../session.php';
                         <p class="card-text"><?php echo $valeur['prix'] ?>€</p>
                         <p class="card-text"><?php echo $valeur['pegi'] ?></p>
                         <p class="card-text"><?php echo $valeur['genre'] ?></p>
+                        <?php 
+                            if (isset($_SESSION["user"])): ?> 
                         <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                        <?php else: //retirer le bouton ajouter au panier si pas connecté
+                            ?>
                     </div>
+                    <?php endif; ?> 
                 </div>
             </div>
         </div>
