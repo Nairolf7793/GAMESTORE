@@ -3,7 +3,6 @@
 
 require_once './configuration/DbConnection.php';
 require_once 'session.php';
-require_once 'template/header.php';
  
  DbConnection::getPdo();
 
@@ -18,131 +17,170 @@ require_once 'template/header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/122336720d.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link ref="stylesheet" href="./CSS/index.css">
     <title>Gamestore</title>
 </head>
 <body>
 
+<!-- start navbar -->
+<header>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img src="./asset/LOGO.png" alt="Bootstrap" width="100" height="100">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./template/liste.php">Jeux</a>
+        </li>
+        <?php 
+          
+                if (isset($_SESSION["user"])): ?> 
+                <p>Bonjour <?php echo $_SESSION["user"]["firstname"]; ?> </p>
+                <a href="shopping.php">mon panier</a>
+                <a href="form_ajout.php">Ajout jeux</a></li>
+                <a href="logout.php">Déconnexion</a>
+                
+                <?php else: 
+                    ?>
+                <div class="d-flex justify-content-around">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="form_co.php">Se connecter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="form_inscription.php">S'inscrire</a>
+                    </li>
+                </div>
+
+        <?php endif; ?> 
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<!-- end navbar -->
 
     <!--start section descprition-->
-        <section class="header__description">
-            <p><span class="header__span">Gamestore : </span>votre destination incontournable pour tous vos besoins en jeux vidéo.
+    <div class="card text-bg-dark">
+        <img src="./asset/fond.png" class="card-img" alt="..." width='100vh'>
+        <div class="card-img-overlay">
+            <h5 class="card-title">Bienvenue chez Gamestore : </h5>
+            <p class="card-text">votre destination incontournable pour tous vos besoins en jeux vidéo.
              Avec cinq magasins situés stratégiquement en France, à Nantes, Lille, Bordeaux, 
              Paris et Toulouse, nous vous offrons une expérience unique, que ce soit en ligne 
              ou en magasin. Découvrez notre vaste sélection de jeux vidéo couvrant toutes les 
              plateformes populaires, pour tous les goûts et tous les âges. Que vous soyez un 
              passionné de consoles, de jeux PC ou de jeux sur mobile, Gamestore a ce qu'il vous 
-             faut pour enrichir votre expérience de jeu.
-            "Plongez dans l'univers du jeu vidéo avec Gamestore, votre destination incontournable pour les nouveautés 
-            et les classiques sur toutes les plateformes !"
-            </p>
-        </section>
+             faut pour enrichir votre expérience de jeu.</p>
+            <p class="card-text"><small>  "Plongez dans l'univers du jeu vidéo avec Gamestore, votre destination incontournable pour les nouveautés 
+            et les classiques sur toutes les plateformes !"</small></p>
+        </div>
+    </div>
     <!--End section description-->
-    </header>
+    
 <!--End Header-->
 
 <!--Start page d'acceuil-->
     <!--Start section actu-->
-    <section class="actu">
-        <h1>L'actualité du mois</h1>
-        <aside class="annonce">
-            <div class="annonce__img">
-                <img src="./asset/gta2.jpg.jpg" alt="image representant le jeu gta 2" title="image jeu gta 2">
+    <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="./asset/gta2.jpg.jpg" class="img-fluid rounded-start" alt="image representant le jeu gta 2" title="image jeu gta 2">
             </div>
-            <div class="annonce__description">
-                <h2>Decouvrer l'actu du mois</h2>
-                <ul>
-                    <li>GTA 2</li>
-                    <li>PEGI 18</li>
-                    <li>19.99€</li>
-                </ul>
-                <button>En savoir plus</button>
-            </div>
-        </aside>
-    </section>
-    <!--End section actu-->
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-text text-center">L'actu du mois</h5>
+                    <p class="card-text text-center">GTA 2</p>
+                    <p class="card-text text-center"><small class="text-body-secondary">PEGI 18</small></p>
+                    <p class="card-text text-center"><small class="text-body-secondary">19.99€</small></p>
+                    <p class="card-text text-center"><small class="text-body-secondary"><a href="#" class="btn btn-primary">En savoir plus</a> </small></p>  <!--ajout d'un p pour aligner le boutton -->
+                </div>
+            </div>            
+        </div>
+    </div>
+    <!-- end section actu -->
 
-    <!--Start section promo-->
-    <section class="promo">
-        <h1>La promo Gamestore</h1>
-        <aside class="annonce">
-            <div class="annonce__description">
-                <h2>Decouvrer l'actu du mois</h2>
-                <ul>
-                    <li>GTA 1</li>
-                    <li>PEGI 18</li>
-                    <li>19.99€ 12.99€</li>
-                </ul>
-                <button>En savoir plus</button>
+    <!-- start section promo -->
+    <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body mx-auto p-2" style="width: 200px;">
+                    <h5 class="card-text text-center">L'actu du mois</h5>
+                    <p class="card-text text-center">GTA</p>
+                    <p class="card-text text-center"><small class="text-body-secondary">PEGI 18</small></p>
+                    <p class="card-text text-center"><small class="text-body-secondary">12€99</small></p>
+                    <p class="card-text text-center"><small class="text-body-secondary"><a href="#" class="btn btn-primary">En savoir plus</a> </small></p>  
+                </div>
             </div>
-            <div class="annonce__img2">
-                <img src="./asset/gta.jpg.jpg" alt="image representant le jeu gta" title="image jeu gta">
+            <div class="col-md-4">
+                <img src="./asset/gta.jpg.jpg" class="img-fluid rounded-start" alt="image representant le jeu gta 2" title="image jeu gta 2">
             </div>
-        </aside>
-    </section>
-    <!--End section promo-->
+        </div>
+    </div>
+    <!-- end section promo -->
 <!--End page d'acceuil-->
+<footer>
+    <div class="d-flex justify-content-around">
 
-<!--Start footer-->
-    <footer class="footer">
-        <!--Start section menu footer-->
-        <section>
-            <ul>
-                <li>CGV</li>
-                <li>RGPD</li>
-                <li>Nos engagements</li>
-                <li>FAQ</li>
-            </ul>
-        </section>
-    <!--End section menu footer-->
+        <ul class="nav col-md-4">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Accueil</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">CGV</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">RGPD</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Nos engagements</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQ</a></li>
+        </ul>
 
-    <!--Start section social-->
-        <section>
-            <h2>Nous suivre</h2>
-            <div class="acces__reseau">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-x-twitter"></i>
+        <ul class="nav col-md-4 list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><i class="fa-brands fa-facebook"></i></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><i class="fa-brands fa-instagram"></i></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><i class="fa-brands fa-x-twitter"></i></svg></a></li>
+        </ul>
+
+        <form action="" method="" class="text-center"> <!-- class text center pour tout aligner dont le bouton -->
+            <div>
+                <label for="" class="form-label"></label>
+                <input type="text" class="form-control" id="" placeholder="Votre nom">
             </div>
-        </section>
-    <!--End section social-->
-
-    <!--Start form-->
-        
-        <form class="formulaire" action=""  method="">
-            <fieldset class="fieldset">
-                <legend>Nous contacter</legend>
-            <ul>
-                <li>
-                    <label for="name"></label>
-                    <input type="text">
-                </li>
-                <li>
-                    <label for="lastname"></label>
-                    <input type="text">
-                </li>
-                <li>
-                    <label for="email"></label>
-                    <input type="mail">
-                </li>
-                <li>
-                    <select id="option" name="option">
-                        <option>Retour</option>
-                        <option>Livraison</option>
-                        <option>Connextion</option>
-                    </select>
-                </li>
-                <li>
-                    <label for="message"></label>
-                    <textarea id="message"></textarea>
-                </li>
-            </ul>
-
-            <button type="submit">Envoyer votre demande</button>
-            </fieldset>
+            <div>
+                <label for=""></label>
+                <input type="text" class="form-control" id="" placeholder="Votre prénom">
+            </div>
+            <div>
+                <label for="" class="form-label"></label>
+                <input type="email" class="form-control" id="" placeholder="email : name@example.com">
+            </div>
+            <div>
+                <label for="" class="form-label"></label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected></option>
+                    <option value="1">Retour</option>
+                    <option value="2">Livraison</option>
+                    <option value="3">Connexion</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Votre message"></textarea>
+            </div>
+            <div class= "mt-1">
+                <button type="submit" class="btn btn-primary">Envoyez votre demande</button>
+            </div>
         </form>
-    <!--End form-->
-    </footer>
-<!--End footer-->
+    </div>
+    <div>
+        <p class="text-center text-body-secondary">© 2024</p>
+    </div>
+    
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
