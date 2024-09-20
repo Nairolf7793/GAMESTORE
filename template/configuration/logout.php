@@ -17,6 +17,6 @@ if (isset($_SESSION["user"])) {
     <title>Document</title>
 </head>
 <body>
-    <a href="index.php">retour à l'acceuil</a>
+    <a href="../../index.PHP">retour à l'acceuil</a>
 </body>
 </html>

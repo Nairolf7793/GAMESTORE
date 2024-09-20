@@ -6,10 +6,9 @@
     <title>gamestore</title>
 </head>
 
-
 <?php
-require_once 'configuration/DbConnection.php';
-require_once 'session.php';
+require_once '../db/DbConnection.php';
+require_once './configuration/session.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!$_POST['firstname'] || !$_POST['mp']) {
@@ -39,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
            } else {
             $_SESSION["user"]= $user;
-            header('location: index.php');
+            header('location: ../index.php');
             exit();
            }
         }
@@ -66,9 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         <button type="submit">connection</button>
 
-        <a href="form_inscription.php">Pas encore inscrit?</a>
+        <a href="../template/form_inscription.php">Pas encore inscrit?</a>
 
-        <a href="index.php">retour à l'accueil</a>
+        <a href="../index.PHP">retour à l'accueil</a>
 
     </form>
 
