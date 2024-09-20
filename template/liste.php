@@ -1,7 +1,7 @@
 <?php
 
-require_once '../configuration/DbConnection.php';
-require_once '../session.php';
+require_once '../db/DbConnection.php';
+require_once './configuration/session.php';
  
  DbConnection::getPdo();
 

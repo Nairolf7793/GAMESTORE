@@ -9,8 +9,8 @@
 
 <?php
 
-require_once 'configuration/DbConnection.php';
-require_once 'session.php';
+require_once '../db/DbConnection.php';
+require_once './configuration/session.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!$_POST['firstname'] || !$_POST['lastname'] || !$_POST['mp'] || !$_POST['email'])  {

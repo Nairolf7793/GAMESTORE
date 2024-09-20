@@ -1,8 +1,8 @@
 <?php
 
 
-require_once './configuration/DbConnection.php';
-require_once 'session.php';
+require_once './db/DbConnection.php';
+require_once './template/configuration/session.php';
  
  DbConnection::getPdo();
 
@@ -46,23 +46,23 @@ require_once 'session.php';
                             <p>Bonjour <?php echo $_SESSION["user"]["firstname"]; ?> </p>
                         <ul class="nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="shopping.php">Mon panier</a>
+                                <a class="nav-link" href="./template/shopping.php">Mon panier</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="form_ajout.php">Ajout jeux</a>
+                                <a class="nav-link" href="./template/form_ajout.php">Ajout jeux</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="logout.php">Déconnexion</a>
+                                <a class="nav-link active" aria-current="page" href="./template/configuration/logout.php">Déconnexion</a>
                             </li>
                         </ul>
                         <?php else: 
                         ?>
                         <div class="d-flex justify-content-around">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="form_co.php">Se connecter</a>
+                                <a class="nav-link active" aria-current="page" href="./template/form_co.php">Se connecter</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="form_inscription.php">S'inscrire</a>
+                                <a class="nav-link active" aria-current="page" href="./template/form_inscription.php">S'inscrire</a>
                             </li>
                         </div>
                         <?php endif; ?> 

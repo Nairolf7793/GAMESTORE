@@ -8,9 +8,8 @@
 <body>
 
 <?php
-
-require_once 'configuration/DbConnection.php';
-require_once 'session.php';
+require_once '../db/DbConnection.php';
+require_once './configuration/session.php';
 
 $pdo = DbConnection::getPdo();
 $query = $pdo->query('SELECT * FROM liste_game');
@@ -18,7 +17,7 @@ $liste_game = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
     <main>
-        <form action="form_valid.php" method="POST">
+        <form action="./configuration/form_valid.php" method="POST">
             <div>
                 <label for="nom" class="">Nom</label>
                 <input type="text" class="" id="nom" name="nom">

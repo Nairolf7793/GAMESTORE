@@ -1,8 +1,8 @@
  
 <?php 
 
-require_once 'configuration/DbConnection.php';
-require_once 'session.php';
+require_once '../db/DbConnection.php';
+require_once './configuration/session.php';
 $pdo = DbConnection::getPdo();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                $query->bindParam('genre', $_POST['genre']);
               
                $query->execute();
-          header('location:index.php');
+          header('location: ../../index.php');
   
           }
      }
