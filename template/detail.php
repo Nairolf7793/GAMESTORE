@@ -1,6 +1,7 @@
 <?php 
 
 require_once '../configuration/DbConnection.php';
+require_once '../session.php';
 
     $valeur_id = $_GET['valeur_id'];
     $pdo = DbConnection::getPdo();
@@ -34,15 +35,15 @@ require_once '../configuration/DbConnection.php';
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                            <a class="nav-link active" aria-current="page" href="../index.PHP">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./template/liste.php">Jeux</a>
+                            <a class="nav-link" href="./liste.php">Jeux</a>
                         </li>
                             <?php 
                             if (isset($_SESSION["user"])): ?> 
                             <p>Bonjour <?php echo $_SESSION["user"]["firstname"]; ?> </p>
-                            <a href="shopping.php">mon panier</a>
+                            <a href="shopping.php">Mon panier</a>
                             <a href="form_ajout.php">Ajout jeux</a></li>
                             <a href="logout.php">Déconnexion</a>
                             <?php else: 
@@ -76,7 +77,7 @@ require_once '../configuration/DbConnection.php';
                         <p class="card-text"><?php echo $valeur['prix'] ?>€</p>
                         <p class="card-text"><?php echo $valeur['pegi'] ?></p>
                         <p class="card-text"><?php echo $valeur['genre'] ?></p>
-                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        <a href="#" class="btn btn-primary">Ajouter au panier</a>
                     </div>
                 </div>
             </div>
