@@ -24,48 +24,53 @@ require_once 'session.php';
 <body>
 
 <!-- start navbar -->
-<header>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand">
-      <img src="./asset/LOGO.png" alt="Bootstrap" width="100" height="100">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./template/liste.php">Jeux</a>
-        </li>
-        <?php 
-          
-                if (isset($_SESSION["user"])): ?> 
-                <p>Bonjour <?php echo $_SESSION["user"]["firstname"]; ?> </p>
-                <a href="shopping.php">mon panier</a>
-                <a href="form_ajout.php">Ajout jeux</a></li>
-                <a href="logout.php">Déconnexion</a>
-                
-                <?php else: 
-                    ?>
-                <div class="d-flex justify-content-around">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="form_co.php">Se connecter</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="form_inscription.php">S'inscrire</a>
-                    </li>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand">
+                    <img src="./asset/LOGO.png" alt="Bootstrap" width="100" height="100">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./template/liste.php">Jeux</a>
+                        </li>
+                        <?php 
+                            if (isset($_SESSION["user"])): ?> 
+                            <p>Bonjour <?php echo $_SESSION["user"]["firstname"]; ?> </p>
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="shopping.php">Mon panier</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="form_ajout.php">Ajout jeux</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="logout.php">Déconnexion</a>
+                            </li>
+                        </ul>
+                        <?php else: 
+                        ?>
+                        <div class="d-flex justify-content-around">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="form_co.php">Se connecter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="form_inscription.php">S'inscrire</a>
+                            </li>
+                        </div>
+                        <?php endif; ?> 
+                    </ul>
                 </div>
-
-        <?php endif; ?> 
-      </ul>
-    </div>
-  </div>
-</nav>
-</header>
+            </div>
+        </nav>
+    </header>
 <!-- end navbar -->
 
     <!--start section descprition-->
@@ -102,7 +107,7 @@ require_once 'session.php';
                     <p class="card-text text-center"><small class="text-body-secondary">PEGI 18</small></p>
                     <p class="card-text text-center"><small class="text-body-secondary">19.99€</small></p>
                     <p class="card-text text-center"><small class="text-body-secondary"><a href="#" class="btn btn-primary">En savoir plus</a> </small></p>  <!--ajout d'un p pour aligner le boutton -->
-                </div>
+                </div> <!-- boutton en savoir plus inactif, doit renvoyer vers detail.php -->
             </div>            
         </div>
     </div>
