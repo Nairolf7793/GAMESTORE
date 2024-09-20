@@ -7,6 +7,8 @@
 </head>
 
 
+
+
 <?php
 require_once 'configuration/DbConnection.php';
 require_once 'session.php';
