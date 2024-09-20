@@ -39,7 +39,7 @@ require_once 'session.php';
           <a class="nav-link active" aria-current="page" href="#">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Jeux</a>
+          <a class="nav-link" href="./template/liste.php">Jeux</a>
         </li>
         <?php 
           
@@ -51,14 +51,14 @@ require_once 'session.php';
                 
                 <?php else: 
                     ?>
-                <ul class="nav nav-pills">
+                <div class="d-flex justify-content-around">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="form_co.php">Se connecter</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="form_inscription.php">S'inscrire</a>
                     </li>
-                </ul>
+                </div>
 
         <?php endif; ?> 
       </ul>
@@ -127,68 +127,60 @@ require_once 'session.php';
     </div>
     <!-- end section promo -->
 <!--End page d'acceuil-->
+<footer>
+    <div class="d-flex justify-content-around">
 
-<!--Start footer-->
-    <footer class="footer">
-        <!--Start section menu footer-->
-        <section>
-            <ul>
-                <li>CGV</li>
-                <li>RGPD</li>
-                <li>Nos engagements</li>
-                <li>FAQ</li>
-            </ul>
-        </section>
-    <!--End section menu footer-->
+        <ul class="nav col-md-4">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Accueil</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">CGV</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">RGPD</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Nos engagements</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQ</a></li>
+        </ul>
 
-    <!--Start section social-->
-        <section>
-            <h2>Nous suivre</h2>
-            <div class="acces__reseau">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-x-twitter"></i>
+        <ul class="nav col-md-4 list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><i class="fa-brands fa-facebook"></i></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><i class="fa-brands fa-instagram"></i></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><i class="fa-brands fa-x-twitter"></i></svg></a></li>
+        </ul>
+
+        <form action="" method="" class="text-center"> <!-- class text center pour tout aligner dont le bouton -->
+            <div>
+                <label for="" class="form-label"></label>
+                <input type="text" class="form-control" id="" placeholder="Votre nom">
             </div>
-        </section>
-    <!--End section social-->
-
-    <!--Start form-->
-        
-        <form class="formulaire" action=""  method="">
-            <fieldset class="fieldset">
-                <legend>Nous contacter</legend>
-            <ul>
-                <li>
-                    <label for="name"></label>
-                    <input type="text">
-                </li>
-                <li>
-                    <label for="lastname"></label>
-                    <input type="text">
-                </li>
-                <li>
-                    <label for="email"></label>
-                    <input type="mail">
-                </li>
-                <li>
-                    <select id="option" name="option">
-                        <option>Retour</option>
-                        <option>Livraison</option>
-                        <option>Connextion</option>
-                    </select>
-                </li>
-                <li>
-                    <label for="message"></label>
-                    <textarea id="message"></textarea>
-                </li>
-            </ul>
-
-            <button type="submit">Envoyer votre demande</button>
-            </fieldset>
+            <div>
+                <label for=""></label>
+                <input type="text" class="form-control" id="" placeholder="Votre prénom">
+            </div>
+            <div>
+                <label for="" class="form-label"></label>
+                <input type="email" class="form-control" id="" placeholder="email : name@example.com">
+            </div>
+            <div>
+                <label for="" class="form-label"></label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected></option>
+                    <option value="1">Retour</option>
+                    <option value="2">Livraison</option>
+                    <option value="3">Connexion</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Votre message"></textarea>
+            </div>
+            <div class= "mt-1">
+                <button type="submit" class="btn btn-primary">Envoyez votre demande</button>
+            </div>
         </form>
-    <!--End form-->
-    </footer>
-<!--End footer-->
+    </div>
+    <div>
+        <p class="text-center text-body-secondary">© 2024</p>
+    </div>
+    
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
